@@ -39,6 +39,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      * Default encoding for POST or PUT parameters. See {@link #getParamsEncoding()}.
      */
     private static final String DEFAULT_PARAMS_ENCODING = "UTF-8";
+    private Map<String, String> mParams = null;
 
     /**
      * Supported request methods.
@@ -429,7 +430,11 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      * @throws AuthFailureError in the event of auth failure
      */
     protected Map<String, String> getParams() throws AuthFailureError {
-        return null;
+        return mParams;
+    }
+
+    public void setParams(Map<String, String> params){
+        mParams = params;
     }
 
     /**
